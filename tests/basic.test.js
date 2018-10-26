@@ -63,7 +63,7 @@ describe("Tests basiques", () => {
       // parcours client avec link option
       test('link option', async () => {
         let UrlOption = "https://www.lemonde.fr/culture/article/2018/10/25/dorothea-lange-au-dela-des-icones_5374204_3246.html"
-        let shortLink ="ajki"
+        let shortLink ="adhju89"
         await page.goto('http://polr.campus-grenoble.fr')
         await page.waitForSelector('#show-link-options')
         // text saisie dans un element selectionné.
