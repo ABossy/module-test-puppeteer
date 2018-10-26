@@ -63,7 +63,7 @@ describe("Tests basiques", () => {
       // parcours client avec link option
       test('link option', async () => {
         let UrlOption = "https://www.lemonde.fr/culture/article/2018/10/25/dorothea-lange-au-dela-des-icones_5374204_3246.html"
-        let shortLink ="absy23"
+        let shortLink = String(Date.now())
         await page.goto('http://polr.campus-grenoble.fr')
         await page.waitForSelector('#show-link-options')
         // text saisie dans un element selectionné.
@@ -85,8 +85,9 @@ describe("Tests basiques", () => {
         // bouton shorten, au clic on bascule sur la page polr du campus
         await page.waitForSelector('#shorten')
         await page.$eval( '#shorten', el => el.click() );
+        await page.waitForSelector('#short_url' )
         const resultlink = await page.$eval('body', e =>e.innerHTML)
-        expect(resultlink).toContain("Shortened URL")
+        expect(resultlink).toContain("http://polr.campus-grenoble.fr/" + shortLink)
         await page.screenshot({path: './tests/img/baseurl1.png'});
        
 
